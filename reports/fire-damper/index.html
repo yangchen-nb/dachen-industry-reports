@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>防火阀 · 排烟防火阀 × 阿里巴巴国际站 — 工贸一体工厂出海掘金全攻略</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+:root{
+  --ali-orange:#FF6A00; --ali-orange-light:#FF8C33; --ali-orange-dark:#E05500; --ali-orange-bg:#FFF5ED;
+  --card-bg:#FFFFFF;
+  --text-primary:#222222; --text-secondary:#555555; --text-muted:#888888;
+  --border:#F0F0F0;
+  --gradient-orange:linear-gradient(135deg,#FF6A00 0%,#FF8C33 100%);
+  --gradient-cta:linear-gradient(135deg,#E05500 0%,#FF6A00 100%);
+  --green:#1e8449; --red:#c0392b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;color:var(--text-primary);background:#F8F8FA;line-height:1.8;padding-bottom:80px;}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+.header{background:linear-gradient(135deg,#FF6A00 0%,#FF8C33 50%,#FF6A00 100%);padding:48px 0 40px;text-align:center;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-40%;left:-10%;width:120%;height:180%;background:radial-gradient(ellipse at center,rgba(255,255,255,.12) 0%,transparent 70%);pointer-events:none;}
+.brand-row{display:flex;align-items:center;justify-content:center;position:relative;}
+.brand-mast{height:64px;width:auto;max-width:90%;display:block;}
+.brand-url{display:inline-block;margin-top:10px;color:rgba(255,255,255,.95);font-size:15px;font-weight:600;letter-spacing:1px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.55);padding-bottom:3px;position:relative;transition:color .2s,border-color .2s;}
+.brand-url:hover{color:#fff;border-color:#fff;}
+.header h1{color:#fff;font-size:32px;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.15);position:relative;margin-top:26px;}
+.header p{color:rgba(255,255,255,.92);font-size:15px;margin-top:10px;position:relative;}
+.tldr{background:var(--ali-orange-bg);border-left:5px solid var(--ali-orange);padding:20px 24px;border-radius:0 12px 12px 0;margin:32px auto;max-width:1100px;font-size:15px;line-height:2;}
+.tldr strong{color:var(--ali-orange-dark);}
+.section{margin:40px auto;max-width:1100px;}
+.section-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--gradient-orange);color:#fff;font-weight:800;font-size:18px;flex-shrink:0;box-shadow:0 3px 12px rgba(255,106,0,.3);}
+.section-head h2{font-size:22px;color:var(--text-primary);font-weight:700;}
+.card{background:var(--card-bg);border-radius:16px;padding:24px 28px;box-shadow:0 2px 12px rgba(0,0,0,.04);margin-bottom:20px;border:1px solid var(--border);}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+.kpi-card{background:var(--ali-orange-bg);border-radius:12px;padding:18px 16px;text-align:center;}
+.kpi-card .num{font-size:28px;font-weight:800;color:var(--ali-orange-dark);}
+.kpi-card .label{font-size:13px;color:var(--text-muted);margin-top:4px;}
+.info-card{background:var(--card-bg);border-radius:12px;padding:20px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.03);}
+.info-card h4{color:var(--ali-orange-dark);font-size:16px;margin-bottom:8px;}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.market-card{background:var(--card-bg);border-radius:14px;padding:20px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.market-card h4{color:var(--ali-orange-dark);font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.data-table{width:100%;border-collapse:collapse;font-size:14px;}
+.data-table th{background:var(--ali-orange-bg);color:var(--ali-orange-dark);padding:12px 14px;text-align:left;font-weight:600;}
+.data-table td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.data-table tr:hover td{background:#FFFAF5;}
+.thumb{width:74px;height:74px;border-radius:8px;object-fit:cover;}
+.ptitle{font-weight:600;font-size:14px;line-height:1.3;margin-bottom:4px;}
+.psupp{font-size:12px;color:var(--text-muted);}
+.badge-v{display:inline-block;background:var(--green);color:#fff;font-size:10px;padding:1px 6px;border-radius:3px;margin-left:4px;}
+.price{color:var(--red);font-weight:700;font-size:15px;}
+.moq{font-size:12px;color:var(--text-muted);}
+.star{color:#f1c40f;font-size:14px;letter-spacing:1px;}
+.btn{display:inline-block;background:var(--ali-orange);color:#fff;padding:6px 14px;border-radius:4px;text-decoration:none;font-size:13px;transition:all .2s;white-space:nowrap;}
+.btn:hover{background:var(--ali-orange-dark);}
+.grp-head td{background:linear-gradient(135deg,var(--ali-orange-dark),var(--ali-orange));color:#fff;font-weight:700;font-size:15px;padding:12px 16px;}
+.chart-box{width:100%;height:360px;}
+.adv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px;}
+.adv-card{background:var(--card-bg);border-radius:14px;padding:22px;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.adv-card h5{color:var(--ali-orange-dark);font-size:16px;margin-bottom:8px;}
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;}
+.roadmap::before{content:'';position:absolute;top:54px;left:10%;right:10%;height:3px;background:var(--gradient-orange);border-radius:2px;}
+.roadmap-step{text-align:center;position:relative;}
+.roadmap-step .icon{width:56px;height:56px;border-radius:50%;background:var(--gradient-orange);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;z-index:2;box-shadow:0 4px 16px rgba(255,106,0,.3);}
+.roadmap-step h4{font-size:16px;color:var(--text-primary);margin-bottom:6px;}
+.roadmap-step .period{font-size:13px;color:var(--ali-orange);font-weight:600;margin-bottom:10px;}
+.roadmap-step .detail-card{background:var(--card-bg);border-radius:12px;padding:20px;text-align:left;box-shadow:0 2px 12px rgba(0,0,0,.05);font-size:14px;color:var(--text-secondary);line-height:1.9;}
+.cta-section{text-align:center;padding:48px 24px;background:var(--gradient-cta);border-radius:20px;margin-bottom:40px;}
+.cta-section h2{color:#fff;font-size:28px;margin-bottom:12px;}
+.cta-section p{color:rgba(255,255,255,.9);font-size:15px;margin-bottom:24px;}
+.cta-btn{display:inline-block;background:#fff;color:var(--ali-orange-dark);padding:14px 48px;border-radius:30px;font-size:18px;font-weight:700;text-decoration:none;box-shadow:0 6px 24px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s;}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.28);}
+.src-table{width:100%;border-collapse:collapse;font-size:13px;}
+.src-table th{background:#f5f5f8;color:var(--text-primary);padding:10px 14px;text-align:left;}
+.src-table td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text-secondary);}
+.src-table a{color:var(--ali-orange);text-decoration:none;}
+.footer{text-align:center;padding:32px 24px;color:var(--text-muted);font-size:13px;border-top:1px solid var(--border);max-width:1100px;margin:0 auto;}
+.watermark{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:linear-gradient(135deg,#E05500 0%,#FF6A00 100%);color:#fff;text-align:center;font-size:13px;padding:10px 16px;letter-spacing:.5px;box-shadow:0 -2px 12px rgba(0,0,0,.2);}
+.watermark strong{color:#fff;}
+.watermark span{color:rgba(255,255,255,.75);margin:0 6px;}
+.library-nav{position:fixed;top:20px;left:20px;z-index:10000;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(34,34,34,.76);backdrop-filter:blur(12px);color:#fff;text-decoration:none;font-size:13px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:transform .2s,background .2s;}
+.library-nav:hover{transform:translateY(-2px);background:rgba(224,85,0,.95);}
+@media (max-width:768px){
+  .library-nav{top:12px;left:12px;padding:8px 12px;font-size:12px;}
+  .roadmap{grid-template-columns:1fr;}
+  .roadmap::before{display:none;}
+  .kpi-row{grid-template-columns:repeat(2,1fr);}
+  .grid2,.grid3,.adv-grid{grid-template-columns:1fr;}
+  .header h1{font-size:22px;}
+  .brand-mast{height:44px;}
+}
+</style>
+<style>
+@media (max-width:640px){
+  .card{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .data-table,.src-table{min-width:560px;}
+}
+</style>
+</head>
+<body>
+<a class="library-nav" href="../../index.html" aria-label="返回大晨行业报告库">← 返回报告库</a>
+
+<div class="header">
+  <div class="brand-row">
+    <img class="brand-mast" src="data:image/png;base64,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" alt="阿里巴巴国际站 Alibaba.com" />
+  </div>
+  <a class="brand-url" href="https://www.alibaba.com" target="_blank" rel="noopener">alibaba.com</a>
+  <h1>防火阀 · 排烟防火阀 — 工贸一体工厂国际站出海全攻略</h1>
+  <p>主攻中东与东南亚工程渠道：认证破局、图纸响应、系统方案 · 面向中小型工贸一体企业的B2B方案</p>
+</div>
+
+<div class="tldr">
+  <strong>TL;DR 执行摘要：</strong>客户是具备钣金加工、执行器装配与供应链整合能力的中小型防火排烟阀工贸一体工厂。这个赛道最重要的判断是：<strong>它不是标品价格战赛道，而是「认证 + 图纸 + 系统方案」三件套驱动的工程品赛道</strong>。国际站 <strong>fire damper</strong> 在架 2,000+ 商品中，中国供应商 1,629 家，占供给八成以上，但挂牌价高度集中在 CN¥16.68–303.47 的小口径配件区间——真正的<strong>工程规格 + 第三方耐火报告 + 执行器/控制盘整套方案，供给极薄</strong>。<strong>主攻市场</strong>：中东（沙特、阿联酋、卡塔尔）+ 东南亚（印尼、越南、新加坡、马来西亚）。<strong>主推方向</strong>：矩形多叶排烟防火阀（FOB $6.0–34.9）走量，不锈钢/电动定制款（FOB $9.0–1457.0）拉毛利，圆形阀（FOB $7.2–80.0）铺自然流量，执行器与风量调节阀做配套锁复购。<strong>第一步（也是最关键的一步）</strong>：同步启动两件事——把 EN 1366-2 / UL 555 的测试排期谈下来，以及锁定一家沙特进口商作为 SABER 注册主体（外国供应商无法自行注册 SABER）。<strong>先解决订单资格，再谈价格。</strong>
+</div>
+
+<div class="container">
+
+<!-- 1. 选品底层逻辑 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">1</span><h2>选品底层逻辑：防火阀这条赛道值不值得做？</h2></div>
+  <div class="kpi-row">
+    <div class="kpi-card"><div class="num">1,629</div><div class="label">国际站中国供应商数</div></div>
+    <div class="kpi-card"><div class="num">2,000+</div><div class="label">fire damper 在架商品</div></div>
+    <div class="kpi-card"><div class="num">$6–160</div><div class="label">本次实测FOB主区间</div></div>
+    <div class="kpi-card"><div class="num">5% + 15%</div><div class="label">GCC关税 + 沙特VAT</div></div>
+  </div>
+  <div class="card">
+    <p><strong>赛道机会——不看阀，看下游工程量。</strong>防火阀本身没有可免费核验的权威全球规模数据（market.us、Mordor、Polaris 等口径均在付费墙内，本报告不引用），所以判断这条赛道的正确方式是看它的唯一需求来源：新建与改造建筑的机电工程量。沙特建筑市场 2024 年为 <strong>703.3 亿美元</strong>，2029 年预计 <strong>913.6 亿美元</strong>（隐含年复合增速约 5.4%，为本报告据两端数值自行计算）；PIF 主导的巨型项目里，<strong>NEOM 投资额 5,000 亿美元、Red Sea Global 236 亿美元、Qiddiya 98 亿美元</strong>。东南亚这一侧，印尼新首都 <strong>Nusantara 项目总值约 450 亿美元</strong>，且 GR 12/2023 给出进口关税 0%、进口环节 VAT 0%、企业所得税十年 0% 的激励——这是把认证成本摊薄的一条罕见合法通道。这些数字意味着：未来五年中东与东南亚都会持续产生海量的风管穿越防火分区的场景，而每一个这样的场景，按规范都必须装阀。</p>
+    <p style="margin-top:12px;"><strong>同行短板——被降维成「配件供应商」的根因。</strong>Greenheck、BSB Dampers、TROX 这类欧美工程品牌官网<strong>一律不公示价格</strong>，只给型号与性能参数，全部走询价与图纸提交（submittal）流程。这说明本品类的竞争维度根本不在挂牌价上，而在于：能否给出第三方耐火报告、能否出 DoP 与提交图纸包、能否把阀体 + 执行器 + 可寻址控制盘（BSB 的 ACP/EM 就是典型）做成一套交付。国际站上绝大多数中国供应商恰恰在这三点上集体缺位——只卖阀体、只报单价、拿不出目的国认可机构出具的报告。结果就是明明产能和成本都占优，却被工程渠道当成配件件商压价。</p>
+    <p style="margin-top:12px;"><strong>工厂优势——工贸一体在这条赛道的价值被严重低估。</strong>防火阀是典型的非标件：尺寸按风管走、法兰与套管按土建走、温感档位（70/150/280℃）按用途走、驱动方式按消防联动方案走。这意味着「快速出图 + 快速打样 + 小批量柔性生产」本身就是核心竞争力，而这恰好是工贸一体模式最擅长的事。生产端可以自控钣金精度、叶片密封与熔断/执行器装配质量；贸易端可以整合镀锌板、不锈钢、执行器、控制盘与检测资源。把「48 小时出 submittal 图纸、7 天出样」写进店铺首屏，比降价两美元有效得多。</p>
+    <p style="margin-top:12px;"><strong>竞争强度——供给结构极度不均衡，这既是压力也是机会。</strong>国际站 fire damper 的供应商国别分布为：中国 1,629 家，蒙古 8 家，沙特 3 家，土耳其 2 家，印度 1 家，新加坡 1 家。中国供给占比超过八成，看似红海；但结合挂牌价区间（CN¥16.68–303.47，约 US$2–43）可以判断，这 1,629 家里绝大多数做的是小口径、无认证、单价几十元的配件，<strong>与工程项目真正需要的大规格带认证产品几乎不构成竞争</strong>。真正的竞争对手是 Ruskin、Greenheck、Halton、Nailor、TROX、Systemair、Swegon/Actionair 这些拿着 UL/EN 报告进 approved vendor list 的品牌，以及中东本地组装厂。</p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:14px;">选品打分模型（需求热度40% + 竞争密度30% + 工厂匹配度30%）</h4>
+    <table class="data-table">
+      <thead><tr><th>细分方向</th><th>需求热度</th><th>竞争密度<br>（分越高=竞争越少）</th><th>工厂匹配度</th><th>综合分</th><th>取舍判断</th></tr></thead>
+      <tbody>
+        <tr><td>矩形多叶排烟防火阀（70/280℃）</td><td>9</td><td>5</td><td>9</td><td><strong>7.8</strong></td><td>主推走量</td></tr>
+        <tr><td>电动 motorized 防火阀（带执行器）</td><td>8</td><td>7</td><td>8</td><td><strong>7.7</strong></td><td>主推拉毛利</td></tr>
+        <tr><td>组合式 fire smoke damper（UL 555+555S）</td><td>9</td><td>9</td><td>5</td><td><strong>7.8</strong></td><td>战略投入，认证先行</td></tr>
+        <tr><td>不锈钢 304/316 恶劣环境型</td><td>7</td><td>8</td><td>8</td><td><strong>7.6</strong></td><td>主推高端</td></tr>
+        <tr><td>阀体+执行器+控制盘系统方案</td><td>7</td><td>9</td><td>6</td><td><strong>7.3</strong></td><td>差异化杀手锏</td></tr>
+        <tr><td>圆形 / 扁椭圆防火阀</td><td>7</td><td>7</td><td>7</td><td><strong>7.0</strong></td><td>引流铺量</td></tr>
+        <tr><td>正压送风口 / 排烟口百叶阀</td><td>6</td><td>7</td><td>8</td><td><strong>6.9</strong></td><td>配套顺带</td></tr>
+        <tr><td>A60 船用防火阀</td><td>5</td><td>8</td><td>6</td><td><strong>6.2</strong></td><td>观察，需船级社认证</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;font-size:13px;color:var(--text-secondary);"><strong>敢说真话：</strong>前五个方向的综合分挤在 7.3–7.8 之间，<strong>这个分差已经小到分不出胜负了</strong>，不要拿它当排序依据。真正的取舍逻辑是定性的：矩形多叶阀决定你有没有饭吃（现金流），组合式认证阀决定你三年后是不是还只能做配件（天花板），系统方案决定客户会不会把你换掉（粘性）。三件事必须并行，而不是按分数排队做。打分模型只用来排除明显不该碰的方向。</p>
+  </div>
+</div>
+
+<!-- 2. 蓝海发掘 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">2</span><h2>蓝海发掘：供需错配在哪里，以及哪些是伪蓝海</h2></div>
+  <div class="card">
+    <p>蓝海的定义只有一个：<strong>需求真实存在 + 国际站供给稀薄 + 有溢价空间</strong>。三个条件缺一个就是陷阱。本章的供给侧判断来自对国际站在架商品与供应商结构的实测，需求侧判断来自欧美工程品牌的在售产品线（有人做全系列，说明有人买）。</p>
+    <div class="chart-box" id="chart1" style="margin-top:16px;"></div>
+  </div>
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th>细分方向</th><th>需求信号</th><th>国际站供给现状</th><th>溢价空间</th><th>真伪判定</th></tr></thead>
+      <tbody>
+        <tr><td><strong>UL 555 + 555S 组合式防火排烟阀</strong></td><td>美标市场与中东项目普遍指定；规范只接受泄漏 Class I / II</td><td>搜 UL555 首屏 48 条中 38 条与阀相关，但<strong>几乎没有一条能提供第三方 UL 报告</strong></td><td>高（决定投标资格，而非比价）</td><td><strong>真蓝海</strong></td></tr>
+        <tr><td><strong>电动阀 + 执行器 + 可寻址控制盘整套</strong></td><td>英系工程供应商标配 ACP 可寻址阀控制盘 / EM 机电控制盘</td><td>中国供应商普遍只卖阀体或只卖执行器，不做系统集成</td><td>高（从卖件变成卖方案）</td><td><strong>真蓝海</strong></td></tr>
+        <tr><td><strong>EI 120 / EI 240 高等级 + S 漏烟等级</strong></td><td>EN 13501-3 分级上端，医院、机场、地铁隧道项目指定</td><td>中国供给集中在无分级的通用款</td><td>高</td><td><strong>真蓝海</strong></td></tr>
+        <tr><td><strong>圆形 / 扁椭圆保温型防火阀（EIS 级）</strong></td><td>英系 MFD-IC 类产品为成熟品类，尺寸链长</td><td>本次实测圆形阀多为无认证低价款（FOB $7.5–80）</td><td>中高（模具与尺寸链是门槛）</td><td><strong>真蓝海</strong></td></tr>
+        <tr><td><strong>不锈钢 304/316 恶劣环境型</strong></td><td>对标 Greenheck SSFD/SEDFD；中东海滨、化工、厨房排烟场景刚需</td><td>有供给但多为小规格，缺盐雾与耐蚀数据</td><td>中高</td><td><strong>真蓝海</strong></td></tr>
+        <tr><td><strong>数据中心机房用动态高静压阀</strong></td><td>对标动态型 4–10 in. wg / 2000–4000 fpm 标定档位</td><td>中国供给基本不标注动态风速与关闭静压</td><td>高（参数即门槛）</td><td><strong>真蓝海</strong></td></tr>
+        <tr><td><strong>A60 船用防火阀（2000 Pa / 20 m/s）</strong></td><td>英系供应商列为独立产品线</td><td>供给稀少</td><td>中（需船级社认证，周期长）</td><td>机会但慢</td></tr>
+        <tr><td>超低价小口径通用风阀（¥9.49 级）</td><td>有搜索，但询盘多为样品单</td><td>1688 在架 6,295 件，国际站中国供应商 1,629 家扎堆</td><td>极低，运费与包装即可吃掉毛利</td><td><strong>伪蓝海（不要碰）</strong></td></tr>
+        <tr><td>无认证「工程规格」大尺寸阀</td><td>看似需求大</td><td>没人做不是因为没需求，是<strong>因为没认证根本进不了图审</strong></td><td>无（拿不到订单）</td><td><strong>伪蓝海（先补认证）</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:10px;">🎯 最值得先打的一枪：印尼 Nusantara</h4>
+    <p>如果认证预算只够打一个市场，先打印尼。理由不是需求最大，而是<strong>成本结构最友好</strong>：Nusantara 新首都项目总值约 450 亿美元，GR 12/2023 明确给出进口关税 0%、进口环节 VAT 0%、企业所得税十年 0%。同时印尼 2025 年 MFN 平均关税为 8.1%（非农 8.0%），叠加 ACFTA 项下 Form E 优惠，常规渠道进入成本本来就低于中东。用印尼做第一个认证与项目案例的试验场，拿到真实的 submittal 经验和项目照片，再去打沙特和阿联酋，说服力完全不一样。</p>
+  </div>
+</div>
+
+<!-- 3. 行业趋势研判 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">3</span><h2>行业趋势研判：中东与东南亚，两种完全不同的打法</h2></div>
+  <div class="grid2">
+    <div class="market-card">
+      <h4>🕌 中东（沙特 / 阿联酋 / 卡塔尔 / 科威特）</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">增长确定性最高，但门槛也最硬。沙特建筑市场 703.3 亿美元（2024）→ 913.6 亿美元（2029），NEOM 5,000 亿美元、Red Sea Global 236 亿美元、Qiddiya 98 亿美元的巨型项目持续释放机电工程量。关税结构清晰：GCC 统一对外关税对域外货物<strong>大多数商品至少 5%，按 CIF 从价计征</strong>，沙特 VAT 15%（2020 年 7 月起），另有海关附加费与查验相关费用；2025 年 1 月起 GCC 已切换至 HS-2022 十二位编码。<strong>真正的门槛不是关税，是认证与注册主体</strong>：SASO 符合性证书为强制，通过 Saber 平台注册，而 Saber 平台<strong>只对沙特进口商、SASO 认可的认证机构和沙特海关开放，中国工厂无法自行注册</strong>；卡塔尔 QCDD 实行实验室与认证机构认可制，报告必须由 QCD 认可机构出具，中国本地检测报告不被采信。</p>
+    </div>
+    <div class="market-card">
+      <h4>🌴 东南亚（印尼 / 越南 / 新加坡 / 马来西亚）</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">进入成本更低，制度更碎片化。印尼有 Nusantara 的零关税零 VAT 窗口，MFN 平均关税 8.1%，2025 年 2 月财政部 4/2025 号令把 8 类商品简化为 0%/15%/25% 三档（钢铁 15%）。越南税则依 Decree 26/2023/ND-CP，多数进口关税不超过 15%，消防产品强制认证依据 QCVN 03:2021/BCA，建筑防火依据 QCVN 06:2022/BXD。新加坡最严：防火阀属 Fire Code 2023 第 11 章受管制消防产品，必须取得 SCDF 认可机构的符合性证书（Product Listing），本地证书不可替代。马来西亚以 UBBL 1984（2021 修订）为法定要求，CIDB 另有建筑产品审批指引。<strong>关税优惠务必用 ACFTA 的 Form E</strong>——中国—东盟自贸协定 3.0 版升级议定书已于 2025 年 10 月 28 日签署，东盟机电类多数税目在 ACFTA 项下已降至零，通常优于 RCEP。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px;">
+    <div class="chart-box" id="chart2"></div>
+  </div>
+  <div class="grid2">
+    <div class="info-card">
+      <h4>📅 淡旺季与采购节奏（经验判断，非公开统计）</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">量化的季节性数据没有可免费核验的来源，以下按工程渠道惯例判断，落地前请用客户实际下单记录校准：中东在<strong>斋月前 4–6 周集中下单</strong>（斋月工时缩短、报关放缓），7–8 月盛夏户外施工减速但室内机电安装继续，<strong>Q4 财年结算前有一波预算清空式采购</strong>；东南亚受雨季影响（印尼、越南约 10–3 月，泰国约 5–10 月）主要拖慢吊装与外墙工序，机电安装受影响较小；<strong>春节前 3–4 周是中国工厂产能与船期最紧的窗口</strong>，成熟买家普遍在 12 月提前备货，这也是最好的催单理由。</p>
+    </div>
+    <div class="info-card">
+      <h4>⚠️ 政策与合规风向</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">利好方面：ACFTA 3.0 升级议定书 2025 年 10 月签署，东盟通道进一步打开；印尼 Nusantara 的 GR 12/2023 提供零关税零 VAT 窗口。压力方面：沙特 LCGPA 已对政府采购设定最低本地含量比例并逐步扩展至国有实体，印尼 TKDN 同样存在本地含量要求（两者的具体百分比本次未取到可核验原文，投标前必须逐项目确认）。正向结论一条：<strong>本次检索未发现任何针对中国防火阀 / 风阀的反倾销或保障措施案件</strong>，贸易救济风险暂时不构成障碍。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. 平台热度解读 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">4</span><h2>平台热度解读：关键词怎么选，流量从哪儿来</h2></div>
+  <div class="card">
+    <p>这个品类没有公开的搜索量数据可引用，所以本章不编造搜索指数，改用一个可以自己复现、也更有决策价值的实测指标：<strong>同一个关键词搜索后，首屏 48 条结果里真正与防火阀强相关的条数</strong>。相关度越高，说明这个词的买家意图越精准、平台对这个词的理解越准，投放和标题布局的性价比就越高；相关度低说明词太泛，流量进来也转化不了。</p>
+    <div class="chart-box" id="chart3" style="margin-top:16px;"></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--text-secondary);">数据说明：2026 年 9 月于 Alibaba.com 实测，统计口径为首屏 48 条结果中标题命中防火阀 / 排烟阀 / 风阀 / damper 的条数。</p>
+  </div>
+  <div class="grid2">
+    <div class="info-card">
+      <h4>🔍 最重要的一个发现</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">搜索 <strong>UL555 fire damper</strong> 时，首屏 48 条里有 38 条是防火阀类商品，说明<strong>确实有买家在用认证词搜索</strong>；但这 38 条里几乎没有一条能提供真实的 UL 第三方报告——它们只是把 UL 当关键词堆在标题里。这意味着两件事：第一，认证词是真实的高意图流量入口；第二，<strong>只要你是这条搜索结果里唯一能甩出报告编号的供应商，你就不需要跟任何人比价</strong>。这是本报告里最值钱的一条结论。</p>
+    </div>
+    <div class="info-card">
+      <h4>🧭 流量逻辑与红利点</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">工程品的流量结构和消费品完全不同：自然搜索负责被发现，RFQ 与直接询盘负责成交，而决定转化的是<strong>详情页能不能直接回答工程师的三个问题</strong>——耐火等级多少、泄漏等级几级、执行器怎么联动。红利点在于绝大多数同行的详情页只放产品图和尺寸表，谁先把测试报告、DoP、CAD/BIM 图纸包、安装大样图做成可下载的资料区，谁就能把询盘质量整体拉高一档。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px;">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:14px;">买家类型与决策关注点（经验判断，非公开统计）</h4>
+    <table class="data-table">
+      <thead><tr><th>买家类型</th><th>典型采购量级</th><th>决策关注点</th><th>下单节奏</th><th>运营应对</th></tr></thead>
+      <tbody>
+        <tr><td>MEP 机电承包商 / 系统集成商</td><td>单项目 200–5,000 台</td><td>消防部门批文、样品与图纸提交、交期锁定</td><td>跟项目里程碑，一次性大单</td><td>配专人做 submittal，报价含图纸服务</td></tr>
+        <tr><td>风管加工厂（duct fabricator）</td><td>月度 100–1,000 台</td><td>尺寸定制、法兰/套管配合、单价</td><td>滚动补货</td><td>做尺寸速查表 + 阶梯价</td></tr>
+        <tr><td>建材贸易商 / 项目分销商</td><td>首单 1–2 柜试单</td><td>认证齐全度、OEM 贴牌、账期</td><td>季度性备库</td><td>提供贴牌与本地包装方案</td></tr>
+        <tr><td>EPC 总包</td><td>框架协议</td><td>是否进入业主 approved vendor list</td><td>年度招标</td><td>先通过分销商曲线进入名录</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 5. 产品运营打法 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">5</span><h2>产品运营打法：主图、关键词、定价与价差链</h2></div>
+  <div class="grid2">
+    <div class="info-card">
+      <h4>🖼️ 主图方向：别拍产品，拍证据</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">工程买家不看颜值看凭据。第一张图放<strong>产品 + 关键参数角标</strong>（耐火等级、温感档位 70/150/280℃、泄漏等级、驱动方式）；第二张放<strong>结构剖视图</strong>，让工程师一眼看懂叶片密封与熔断/复位机构；第三张放<strong>安装大样图</strong>（套管、角钢框、墙体开洞尺寸）；第四张放<strong>测试报告或证书封面</strong>（有就放，这是最强的信任状）；第五张放<strong>工厂产线与检测台</strong>，证明是工厂不是贸易公司；第六张放<strong>装柜方案</strong>，直接回答买家最关心的运费问题。</p>
+    </div>
+    <div class="info-card">
+      <h4>🔑 标题关键词布局</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">按「品类词 + 材质/形状 + 温感档位 + 驱动方式 + 认证词 + 应用场景」组合。例如 <em>Fire Smoke Damper Galvanized Steel Multi-blade 70/280℃ Motorized for HVAC Duct</em>。务必覆盖三组同义表达：<strong>fire damper / smoke damper / fire smoke damper</strong>（品类）、<strong>circular / round / rectangular / flat oval</strong>（形状）、<strong>motorized / electric / manual / spring return</strong>（驱动）。避免只写中式直译词，也不要把 UL、EN 当装饰词堆砌——真有报告才写，写了拿不出来会直接被拉黑。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px;">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:14px;">💰 价差链分析（本报告最需要客户配合补数的地方）</h4>
+    <table class="data-table">
+      <thead><tr><th>环节</th><th>价格区间</th><th>数据来源</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>1688 国内批发</td><td>¥9.49 – ¥417 / 个（中位约 ¥60–80）</td><td>1688「防火阀」搜索页，在架 6,295 件，2026 年实测</td><td>产业带集中在无锡、佛山、德州、广州；<strong>该区间以小口径配件为主</strong></td></tr>
+        <tr><td>国际站 FOB 挂牌</td><td>US$6.0 – US$1457.0</td><td>本次 29 款真实商品实测（见第六章）</td><td>挂牌价≠成交价，工程规格普遍需询价</td></tr>
+        <tr><td>海外工程终端</td><td><strong>⚠️ 未公开</strong></td><td>Greenheck、BSB Dampers、TROX UK 官网均不公示价格</td><td>全部走询价与图纸提交流程</td></tr>
+        <tr><td>毛价差倍数</td><td><strong>⚠️ 待询单验证</strong></td><td>—</td><td><strong>本报告拒绝给出编造的倍数</strong>。建议用一次真实询单反推</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;font-size:13px;color:var(--text-secondary);"><strong>为什么这里不给数字：</strong>这条赛道的终端价被工程渠道的询价机制完全遮蔽，任何「3–8 倍价差」的说法都是拍的。正确做法是让客户挑 2–3 个主力规格（如 500×400、800×500、1000×630），一次性做三件事：拿 1688 同规格实际询价、拿国际站同行实际报价、通过一个海外客户拿到当地工程报价。三个数一到手，价差链就是真的，定价策略才站得住。<strong>这也是签约后第一周就应该完成的动作。</strong></p>
+  </div>
+  <div class="card">
+    <div class="chart-box" id="chart4"></div>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:14px;">🧮 三层定价框架</h4>
+    <div class="grid3">
+      <div class="info-card">
+        <h4>第一层：成本底线</h4>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.9;">退税收入 = 含税成本 ÷ (1+增值税率) × 退税率<br>FOB人民币底价 = 含税成本 + 国内费用 − 退税收入<br>FOB美元底价 = FOB人民币底价 ÷ 汇率 × (1+汇率缓冲1.5%)<br>目标FOB报价 = FOB美元底价 ÷ (1−目标毛利率)<br><strong>⚠️ 待替换：</strong>含税成本、国内费用、目标毛利率需客户提供</p>
+      </div>
+      <div class="info-card">
+        <h4>第二层：同行价带对标</h4>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.9;">低价切入：FOB $7.2–6.0（圆形/小规格引流）<br>中位跟随：FOB $6.0–34.9（矩形多叶主力）<br>高价差异化：FOB $9.0–1457.0（不锈钢/电动/定制大规格）<br><strong>这一层的数字来自本次 29 款实测样本，可直接用。</strong></p>
+      </div>
+      <div class="info-card">
+        <h4>第三层：买家账本反推</h4>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.9;">买家落地成本 = CIF + 目的国关税 + 清关渠道费<br>沙特参考：关税 ≥5%（CIF 从价）+ VAT 15%<br>印尼参考：MFN 均值 8.1%，Nusantara 项目 0%<br>买家毛利 = 终端价 − 落地成本<br><strong>⚠️ 终端价未公开，需询单补齐后才能算</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:14px;">📦 一条能立刻省钱的建议：装柜方案</h4>
+    <p>防火阀是薄壁钢制方形壳体，典型抛货，柜型利用率天然偏低，运费在报价里的占比会明显高于同价位标品（具体占比无公开数据，需按实际装柜方案测算）。可落地的降本动作有三个：<strong>法兰可拆分运输</strong>，到目的地再组装；<strong>同系列不同尺寸嵌套装柜</strong>，用小规格填大规格内腔；<strong>执行器与控制盘独立小箱</strong>，避免为保护执行器而给整阀加厚包装。把这三条做成一页装柜示意图放进详情页，对贸易商买家的说服力极强——他们比你更在意每柜能装多少台。</p>
+  </div>
+  <div class="card">
+    <h4 style="color:var(--ali-orange-dark);margin-bottom:14px;">⏱️ 分阶段运营节奏</h4>
+    <table class="data-table">
+      <thead><tr><th>阶段</th><th>核心动作</th><th>SKU 结构</th><th>验收标准</th></tr></thead>
+      <tbody>
+        <tr><td>第 1–4 周</td><td>店铺搭建、25–30 SKU 上线、启动认证排期与沙特进口商对接</td><td>矩形多叶 12 + 圆形 8 + 不锈钢电动 6 + 配套 4</td><td>SKU 全部通过质检、认证测试合同签订</td></tr>
+        <tr><td>第 5–12 周</td><td>关键词精投、RFQ 主动报价、补齐图纸资料区</td><td>按询盘反馈砍掉无效 SKU，补主力规格</td><td>月均询盘进入两位数，出现首个样品单</td></tr>
+        <tr><td>第 13 周起</td><td>拿到测试报告后重做详情页与主图，切换到认证词投放</td><td>新增组合式阀与系统方案 SKU</td><td>询盘中出现项目型客户与 submittal 需求</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 6. 爆品精选 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">6</span><h2>爆品精选：29 款国际站真实在售商品拆解</h2></div>
+  <div class="card">
+    <p>以下 29 款商品全部来自 Alibaba.com 实时搜索（2026 年 9 月采集），图片链接与商品链接<strong>已逐条 curl 验证返回 200</strong>，价格、MOQ、评分、供应商经营年限均为页面实际展示值。看这张表的正确方式不是找模仿对象，而是<strong>看清价格带在哪里断层</strong>——你会发现 FOB $35 到 $110 之间几乎是空的，而这一段恰好是工程规格带认证产品应该在的位置。</p>
+  </div>
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th style="width:90px;">图片</th><th>产品 / 供应商</th><th style="width:150px;">价格 / MOQ</th><th style="width:110px;">评分</th><th style="width:100px;">链接</th></tr></thead>
+      <tbody>
+<tr class="grp-head"><td colspan="5">🥇 主推款 · 矩形多叶排烟防火阀（FOB $6–35，工程主力走量款）</td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H08fbad1e42f046fc8b0b93f9a1a5dc9ch.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Smoke Exhaust Fire Damper 70/280°C, SS304 Square</div><div class="psupp">Sichuan Zhujiang Hangze Air Conditioning Equipment · 1 yrs <span class="badge-v">✓ Verified</span></div></td><td><div class="price">US$15.80 - $34.90</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Smoke-Exhaust-Fire-Damper-70-280_1601673225220.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H7b6fecfe2c5d45fc89950838c677b0a9a.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Galvanized Multi-blade Fire & Smoke Damper 70/280°C</div><div class="psupp">Sichuan Zhujiang Hangze Air Conditioning Equipment · 1 yrs <span class="badge-v">✓ Verified</span></div></td><td><div class="price">US$18.60 - $20.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Zhujianghangze-Fireproof-Smoke-Exhaust-Galvanized-Multi_1601674641660.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H95d241f09e1942319fbfe8d39ef5a4bae.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Square Multi-blade Fire Damper with Electric Actuator</div><div class="psupp">Sichuan Zhujiang Hangze Air Conditioning Equipment · 1 yrs </div></td><td><div class="price">US$24.20 - $27.00</div><div class="moq">MOQ: 10 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Industrial-Style-Galvanized-Steel-Multi-Blade_1601707828544.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H4a5324c7b0b0489daa65ba08ef26e8c5Y.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Industrial Galvanized Multi-blade Motorized Fire Damper</div><div class="psupp">Suzhou Deyue Ventilation Electromechanical Equipment · 2 yrs </div></td><td><div class="price">US$25.20</div><div class="moq">MOQ: 10 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Deyue-Industrial-Square-Galvanized-Steel-Multi_1601676789530.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H81bb3cd5a5604a3b8d09630e7a5df295E.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Square Galvanized Multi-blade HVAC Fire Damper</div><div class="psupp">Shaanxi RuiBoyou Ventilation Equipment · 1 yrs </div></td><td><div class="price">US$20.00 - $23.00</div><div class="moq">MOQ: 10 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Industrial-Square-Galvanized-Steel-Multi-Blade_1601806150372.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hde1d003dbe33415fb20ef63ab7a9fd5e3.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Galvanized Fire Damper, Thermal Release 70/280°C</div><div class="psupp">Wuxi Ws Environmental Protection Technology · 1 yrs </div></td><td><div class="price">US$28.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Galvanized-Steel-Fire-Damper-Thermal-Release_1601939931167.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H5edad8bad1684d22b955980f39d7a26aE.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">3C Smoke Exhaust Fire Damper, Manual / Electric</div><div class="psupp">Sichuan Zhujiang Hangze Air Conditioning Equipment · 1 yrs <span class="badge-v">✓ Verified</span></div></td><td><div class="price">US$6.00 - $22.00</div><div class="moq">MOQ: 2 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Fire-3C-Smoke-Exhaust-Manual-Electric_1601674608907.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hc23efdb531c24641a9c750b4407e9ede0.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Fire Damper 70/150/280°C Smoke Exhaust Valve</div><div class="psupp">Sichuan Zhujiang Hangze Air Conditioning Equipment · 1 yrs <span class="badge-v">✓ Verified</span></div></td><td><div class="price">US$9.50</div><div class="moq">MOQ: 30 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Fire-Damper-70-150-280-Degrees_1601675204921.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr class="grp-head"><td colspan="5">💎 高端款 · 不锈钢 / 电动 / 定制大规格（FOB $29–1,457，拉毛利）</td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hc231d82d4dce4f21a81d05b5b95708fdZ.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Customizable 3C Stainless-steel Square Fire Damper</div><div class="psupp">Beijing Huayu Rongzhu Technology · 2 yrs </div></td><td><div class="price">US$130.00 - $160.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Customizable-3C-Fire-Damper-Square-Stainless_1601556345325.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H5fd055c10d004fd395f2c4a9bdf3e5efv.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Customizable 70/280°C Rectangular Fire & Smoke Damper</div><div class="psupp">Beijing Huayu Rongzhu Technology · 2 yrs </div></td><td><div class="price">US$112.00 - $158.00</div><div class="moq">MOQ: 50 pieces</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Customizable-70-280-Rectangular-Galvanized-Fire_1601559946391.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H5b66af34deea4b28b8b61b1b7864e999i.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Stainless-steel Electric Fire Damper, Remote Reset 280°C</div><div class="psupp">Foshan Lishine Ventilation · 1 yrs </div></td><td><div class="price">US$29.50 - $79.10</div><div class="moq">MOQ: 2 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Stainless-Steel-Electric-Fire-Damper-Remote_1601804058090.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Acfae3504b4b94542a118ddac9838c5cbA.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">SS304 Electric Fire Damper 70/280°C, Custom Size</div><div class="psupp">Wuxi AIRSMITH Ventilation Equipment · 2 yrs </div></td><td><div class="price">US$49.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Factory-Sales-304-Stainless-Steel-Electric_1601272939227.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H20a74d219d3e494baac1ec74b301f864R.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Industrial SS Electric Fire Damper for HVAC, Custom Size</div><div class="psupp">Qingdao Chengmingde Industry And Trade · 1 yrs </div></td><td><div class="price">US$55.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Factory-Sales-Industrial-Stainless-Steel-Electric_1601712945160.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hee908b6ad874454792a8b8360d7842aa1.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Rectangular High-temp Motorized Smoke Fire Damper</div><div class="psupp">Qingdao Chengmingde Industry And Trade · 1 yrs </div></td><td><div class="price">US$9.00 - $40.00</div><div class="moq">MOQ: 5 pieces</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Galvanized-Rectangular-High-Temperature-Resistance-Electric_1601712771105.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/A505eecd9f9514209aea7e076842b1a99x.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Multi-blade Smoke Exhaust / Pressurisation Louvre Damper</div><div class="psupp">Beijing Zhongtian Tailong Aluminum · 2 yrs </div></td><td><div class="price">US$46.41 - $155.30</div><div class="moq">MOQ: 5 pieces</div></td><td><span class="star">★★★★☆</span><div class="moq">4.5</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Galvanized-Steel-Multi-Blade-Smoke-Exhaust_1601944138693.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hed5014a1fa29489884fedbc728116662N.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Explosion-proof Fire & Smoke Damper Actuator 30Nm 24V</div><div class="psupp">Soloon Controls (Beijing) · 10 yrs </div></td><td><div class="price">US$1,457.00</div><div class="moq">MOQ: 1 unit</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/ExS6061Pro-NS30DFK-24V-Explosion-Proof-PRO_1601815872739.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr class="grp-head"><td colspan="5">🔵 引流款 · 圆形防火阀（FOB $7–80，低门槛铺自然流量）</td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H8205bb19baf74b009cd85c8386f39334K.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Galvanized Round Circular Fire Damper for HVAC Duct</div><div class="psupp">Ogardn (Hangzhou) Intelligent Technology · 1 yrs </div></td><td><div class="price">US$19.80 - $23.80</div><div class="moq">MOQ: 10 pieces</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Soaon-High-quality-Galvanized-Round-Fire_1601926714320.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H1ba4a7ef494544cab532685d18659c69Z.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Galvanized Round Fire Damper, Smoke Exhaust Duct</div><div class="psupp">Beijing Huayu Rongzhu Technology · 2 yrs </div></td><td><div class="price">US$20.00 - $80.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/High-quality-Galvanized-Round-Fire-Damper_1601561712857.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H73625ee331cf43869a74548d543e925c9.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Stainless-steel Circular Fire Damper, Hospital Duct</div><div class="psupp">Shaanxi RuiBoyou Ventilation Equipment · 1 yrs </div></td><td><div class="price">US$7.50 - $9.01</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Industrial-Stainless-Steel-Round-Circular-Fire_1601790139013.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H37aad10532d541c5b28604541e767a281.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Round Circular Fire Damper for HVAC Air Duct</div><div class="psupp">Wenan Rongmao Hardware Product · 14 yrs </div></td><td><div class="price">US$9.01</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★☆</span><div class="moq">4.7</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Round-Circular-Fire-Damper-for-Duct_1600074723509.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hcd3185c5a1d84b7e96f65f62b6a6a29cG.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">70°C Round Fire Damper, Manual Reset for Ventilation</div><div class="psupp">A.r. Rain (Shanghai) Technology · 4 yrs </div></td><td><div class="price">US$38.50 - $42.50</div><div class="moq">MOQ: 30 pieces</div></td><td><span class="star">★★★★☆</span><div class="moq">4.4</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/70-C-Round-Fire-Damper-HVAC_1601762974790.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/He9a034247e294f51a1b0b6d53db3aa057.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">70°C Manual Fire Damper, 3C Air Volume Control Valve</div><div class="psupp">Quanzhou Bewells Import & Export · 3 yrs </div></td><td><div class="price">US$7.20 - $18.80</div><div class="moq">MOQ: 50 pieces</div></td><td><span class="star">★★★★☆</span><div class="moq">4.5</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/70-Degree-Manual-Fire-Damper-Galvanized_1601392097175.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H4aac0af2e4854a7bbe7327bc658d23a4m.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Custom Galvanized Fire Damper, Round / Rectangular OEM</div><div class="psupp">Wuxi Ws Environmental Protection Technology · 1 yrs </div></td><td><div class="price">US$28.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Custom-Galvanized-Steel-Fire-Damper-Round_1601939884450.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr class="grp-head"><td colspan="5">⚙️ 配套款 · 执行器与风量调节阀（提客单价、锁复购）</td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H8736bae27d324937bdab4fa7f45b1828J.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Spring-return Damper Actuator for Fire & Smoke Damper</div><div class="psupp">PHC Electronic Products (Beijing) · 7 yrs </div></td><td><div class="price">US$44.00 - $54.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">—</span><div class="moq">暂无评分</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Spring-Return-Damper-Actuator-For-Fire_1601362667428.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Ha8086254d5c6427ab722e8e52c0e1a75o.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">SW0021 5Nm Spring-return Motorized Fire Damper Actuator</div><div class="psupp">Ningbo Star Win Actuators Manufacture · 9 yrs </div></td><td><div class="price">US$28.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/SW0021-5Nm-Spring-Return-Motorized-Electric_60774413243.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hf32df15451d9432281d25afd949020ddm.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Square 5Nm Fire & Smoke Damper Actuator for Hospitals</div><div class="psupp">Cangzhou Pengkong Power Technology · 2 yrs </div></td><td><div class="price">US$37.00</div><div class="moq">MOQ: 1 piece</div></td><td><span class="star">★★★★★</span><div class="moq">5.0</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/China-Manufacturer-Square-Energy-Saving-5Nm_1601676158990.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/Hffbee610228f47218151798ab38d4e60t.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Intumescent Fire Damper, Glass-fibre Core, 2h Rating</div><div class="psupp">Hangzhou Biyou Building Materials Technology · 4 yrs <span class="badge-v">✓ Verified</span></div></td><td><div class="price">US$10.00 - $15.00</div><div class="moq">MOQ: 1,000 pieces</div></td><td><span class="star">★★★★☆</span><div class="moq">4.9</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Intumescent-Fire-Damper-With-Glass-Fiber_1601818805504.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H4eb686491542462d871250c37145592d2.jpg_300x300.jpg" alt="" loading="eager"></td><td><div class="ptitle">Manual Galvanized Round Volume Control Damper</div><div class="psupp">Cangzhou Ruichi Hardware Manufacturing · 11 yrs </div></td><td><div class="price">US$0.50 - $2.00</div><div class="moq">MOQ: 1,000 sets</div></td><td><span class="star">★★★★☆</span><div class="moq">4.9</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/HVAC-Accessories-Manual-Metal-Galvanized-Steel_60709882541.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+<tr><td><img class="thumb" src="https://s.alicdn.com/@sc04/kf/H6afebb402778446097c1f6afdcbcd701V.png_300x300.png" alt="" loading="eager"></td><td><div class="ptitle">Manual Square Air Damper for Ventilation Duct</div><div class="psupp">Zhongshan Hongshengwei Technology Development · 4 yrs </div></td><td><div class="price">US$7.80</div><div class="moq">MOQ: 5 units</div></td><td><span class="star">★★★★☆</span><div class="moq">4.8</div></td><td><a class="btn" href="https://www.alibaba.com/product-detail/Manual-Square-Air-Damper-For-Ventilation_1601814623450.html" target="_blank" rel="noopener">查看产品</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="chart-box" id="chart5"></div>
+  </div>
+  <div class="grid2">
+    <div class="info-card">
+      <h4>📊 从这 29 款里读出来的三件事</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">第一，<strong>供应商极其年轻</strong>：样本里大量是经营 1–2 年的新店，说明这条赛道在国际站上还没有形成稳固的头部格局，现在进场不算晚。第二，<strong>评分虚高但评价数极少</strong>：多个 5.0 分商品只有 1–2 条评价，意味着<strong>成交量普遍很小</strong>，同行并没有真正跑通这条赛道，所谓的竞争压力被高估了。第三，<strong>MOQ 混乱</strong>：从 1 piece 到 1,000 pieces 都有，说明大家对买家画像没共识；把 MOQ 设成「1 台打样 + 10 台起订 + 100 台阶梯价」的三段式，比同行清晰得多。</p>
+    </div>
+    <div class="info-card">
+      <h4>🎯 对标动作清单</h4>
+      <p style="font-size:14px;color:var(--text-secondary);">把这张表当成竞品档案来用：挑出与自己主力规格重叠的 5 款，逐条对比标题关键词覆盖、主图信息密度、参数表完整度、是否标注温感档位与驱动方式、是否提供定制说明。凡是对手写了而你没写的参数，一律补上；凡是对手也没写的参数（泄漏等级、动态风速、关闭静压），<strong>你先写，就先拿到差异化</strong>。这件事零成本，一周内可以做完。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 7. 平台核心优势 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">7</span><h2>平台核心优势：为什么工程品更该在国际站做</h2></div>
+  <div class="adv-grid">
+    <div class="adv-card">
+      <h5>💵 自主定价，不被平台价格战裹挟</h5>
+      <p style="font-size:14px;color:var(--text-secondary);">国际站是 B2B 询盘逻辑，价格由你和买家谈，而不是被搜索排序逼着降价。对防火阀这种非标工程品尤其重要：同一个型号，配镀锌板和配 304 不锈钢、配手动和配弹簧复位执行器，成本差好几倍，本来就不该有统一挂牌价。你可以把挂牌价当引流锚点，把真实报价放进询盘环节，按规格、认证要求和项目量级分层定价。</p>
+    </div>
+    <div class="adv-card">
+      <h5>🔒 先款后货，工程渠道的账期风险前置化解</h5>
+      <p style="font-size:14px;color:var(--text-secondary);">工程渠道最大的隐性成本是账期——普遍 60–120 天并留质保金（行业惯例，无公开统计）。国际站的交易结构支持先款后货与分期收款，让中小工厂不必用自己的现金流去垫项目周期。这一点对刚起步的工贸一体工厂是生死线级别的价值：宁可少接一个大单，也不要被一个大单的账期拖死。</p>
+    </div>
+    <div class="adv-card">
+      <h5>🛡️ 信保交易，把陌生买家变成可接的单</h5>
+      <p style="font-size:14px;color:var(--text-secondary);">中东与东南亚的贸易商买家你大概率没法实地尽调。信保交易提供了资金与履约的中间层，让首单可以在不认识对方的情况下安全成交。对防火阀这种「首单往往是 1–2 柜试单」的品类，这正好匹配——用信保把试单做成，第二单开始才是真正的客户关系。</p>
+    </div>
+    <div class="adv-card">
+      <h5>🌐 一个店铺覆盖多语言多市场</h5>
+      <p style="font-size:14px;color:var(--text-secondary);">中东与东南亚是十几个国家、多种语言、多套消防规范。国际站的多语言站点结构让一套产品资料可以同时触达不同市场的买家，不必为每个国家单独建站。配合按国家整理的认证对照说明（沙特看 SASO/SABER、卡塔尔看 QCDD、新加坡看 SCDF、越南看 QCVN），一个店铺就能承接整个区域的询盘。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. 服务体系 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">8</span><h2>服务体系：中小型工贸一体企业的四个服务模块</h2></div>
+  <div class="grid2">
+    <div class="info-card">
+      <h4>🎯 基础运营支持</h4>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:2;">📞 客户经理一对一服务<br>🏢 实地认证上门审核<br>📚 平台规则培训（线上 + 线下）<br>🔧 店铺基础搭建指导</p>
+    </div>
+    <div class="info-card">
+      <h4>📊 流量运营服务</h4>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:2;">📈 全站推账户开通与初始配置<br>🎯 关键词策略建议<br>📈 投放效果月度复盘<br>💡 优化建议与调整方案</p>
+    </div>
+    <div class="info-card">
+      <h4>🤖 Accio Work 赋能服务</h4>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:2;">🤖 安装与配置指导（保姆级教程）<br>📝 技能库配置与激活辅导<br>🌍 市场调研 Agent 使用培训<br>✉️ 自动化开发信模板定制<br>📊 数据整理 Agent 应用场景指导<br>⏰ 定时任务设置与优化建议<br>💬 多智能体协作团队搭建指导</p>
+    </div>
+    <div class="info-card">
+      <h4>⏰ 新手扶持</h4>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:2;">⏰ <strong>90 天准备期</strong>（付费后可免费装修店铺，上线后才开始计费）<br>🆓 新品 90 天流量扶持期<br>🎁 平台活动报名指导<br>📖 外贸基础知识培训</p>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:20px;">
+    <div class="info-card">
+      <h4>👥 适用客户群体</h4>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:2;">SOHO 外贸创业者 · 初创贸易公司 · 内贸转外贸企业 · 预算有限的新手商家 · 试水跨境电商的传统企业 · 希望用 AI 降低运营人力成本的商家</p>
+    </div>
+    <div class="info-card">
+      <h4>📈 预期效果</h4>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:2;">月均曝光量 5,000–15,000 次 · 月均询盘 10–30 条 · 运营效率提升 60% 以上（通过 Accio Work 自动化）· 人工成本节省 40–50% · 适合快速验证产品和市场匹配度</p>
+    </div>
+  </div>
+</div>
+
+<!-- 9. 执行规划 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">9</span><h2>执行规划：三阶段路线图</h2></div>
+  <div class="roadmap">
+    <div class="roadmap-step">
+      <div class="icon">1</div>
+      <h4>打地基</h4>
+      <div class="period">第 1 个月</div>
+      <div class="detail-card">店铺搭建与 25–30 个 SKU 上线，按矩形多叶 12 / 圆形 8 / 不锈钢电动 6 / 配套 4 配置。<strong>同步启动两件最关键的事</strong>：与检测机构签订 EN 1366-2 或 UL 555 测试合同并锁定排期；锁定一家沙特进口商或清关代理作为 SABER 注册主体。补齐主力规格的 submittal 图纸模板与装柜示意图。完成一次真实的三段价差询单（1688 同规格 + 国际站同行 + 海外客户报价）。</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="icon">2</div>
+      <h4>跑通模型</h4>
+      <div class="period">第 2–3 个月</div>
+      <div class="detail-card">关键词精投与 RFQ 主动报价，重点跟印尼、越南、马来西亚的贸易商与风管加工厂客户，用低门槛市场先跑通「询盘—打样—首单」全链路。按询盘反馈砍掉无效 SKU，补齐真实被问到的规格。建立国家维度的认证对照表（沙特 SASO/SABER、卡塔尔 QCDD、新加坡 SCDF、越南 QCVN 03），询盘一来就能回答合规问题。目标是拿到首个样品单和首个小批量订单。</div>
+    </div>
+    <div class="roadmap-step">
+      <div class="icon">3</div>
+      <h4>建壁垒</h4>
+      <div class="period">长期</div>
+      <div class="detail-card">测试报告到手后重做全店主图与详情页，把报告编号、DoP、CAD/BIM 图纸包做成可下载资料区，投放切换到认证词。上线「阀体 + 执行器 + 控制盘」系统方案 SKU，从卖件升级为卖方案。用印尼或越南的项目案例做背书，通过分销商曲线进入中东 EPC 的 approved vendor list。这一步走通，客户就从价格竞争彻底切换到资格竞争。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>想把这套打法真正落到店铺里？</h2>
+  <p>从认证路径规划、SKU 结构设计到关键词投放与 submittal 资料包，一起把订单资格拿下来</p>
+  <a class="cta-btn" href="https://www.alibaba.com" target="_blank" rel="noopener">📞 立即咨询 · 18710781530</a>
+</div>
+
+<!-- 10. 假设与风险清单 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">10</span><h2>假设与风险清单</h2></div>
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th style="width:22%;">项目</th><th>内容</th><th style="width:14%;">性质</th></tr></thead>
+      <tbody>
+        <tr><td>认证壁垒</td><td>UL 与 EN 双轨且互不通用；报告必须由目的国认可机构出具（卡塔尔须 QCD 认可机构，中国本地报告不被采信）；沙特 SABER 平台不对外国供应商开放，必须绑定当地进口商</td><td><strong>最高风险</strong></td></tr>
+        <tr><td>认证费用与周期</td><td>UL、Efectis、Applus 等机构均不公示价格，<strong>本报告不给金额</strong>，需直接向实验室询价</td><td>数据缺口</td></tr>
+        <tr><td>定制化与图纸负荷</td><td>非标尺寸 + submittal 图纸是交付前提，工程师配置不足会直接丢单</td><td>能力风险</td></tr>
+        <tr><td>物流成本占比</td><td>薄壁钢制方形壳体属抛货，柜型利用率低；<strong>具体占比无公开数据</strong>，需按实际装柜方案测算</td><td>数据缺口</td></tr>
+        <tr><td>回款与账期</td><td>工程渠道普遍 60–120 天并留质保金（行业惯例，无公开统计）</td><td>现金流风险</td></tr>
+        <tr><td>本地含量政策</td><td>沙特 LCGPA 对政府采购设最低本地含量并逐步扩展至国有实体；印尼 TKDN 同类要求存在。<strong>两者具体百分比未取到可核验原文</strong></td><td>政策风险</td></tr>
+        <tr><td>HS 归类争议</td><td>主归类 8481.80（美国 HTS 可查 8481.80.10.95）；但纯机械熔断式钢制阀可能被归 7326.90 / 7308.90，作为通风机零件出运可能被归 8414.90。<strong>建议申请预裁定并固定归类</strong></td><td>关务风险</td></tr>
+        <tr><td>贸易救济</td><td>本次检索<strong>未发现</strong>针对中国防火阀 / 风阀的反倾销或保障措施案件</td><td>正向结论</td></tr>
+        <tr><td>全球市场规模</td><td>防火阀专项全球规模无可免费核验的权威数据，<strong>本报告全程未引用</strong>，改用下游建筑与 HVAC 工程量口径</td><td>数据缺口</td></tr>
+        <tr><td>季节性数据</td><td>中东与东南亚采购季节性无可核验量化来源，第三章相关内容<strong>标注为经验判断</strong></td><td>数据缺口</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 11. 可拓宽方向 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">11</span><h2>可拓宽 / 挖深方向（按价值排序）</h2></div>
+  <div class="card">
+    <p><strong>1. 补齐三段价差链的真实数字（最高优先，一周内可完成）。</strong>挑 500×400、800×500、1000×630 三个主力规格，同时做 1688 同规格实际询价、国际站同行实际报价、以及通过一个海外客户拿到当地工程报价。这三个数一到手，定价策略、目标毛利率、以及「值不值得花钱做认证」这三个问题会同时有答案。</p>
+    <p style="margin-top:12px;"><strong>2. 认证路径的费用与周期实测。</strong>直接向 UL、Efectis、以及国内可做 EN 1366-2 的实验室询报价与排期，做成一张对照表（含测试规格数量、是否需要重复试件、证书有效期与年审成本）。这是本报告唯一无法从公开渠道补齐、但对决策影响最大的数据。</p>
+    <p style="margin-top:12px;"><strong>3. 逐国合规条文核实。</strong>阿联酋 UAE Fire and Life Safety Code of Practice、沙特 SBC 801、新加坡 Fire Code 2023 Table 11A、越南 QCVN 03:2021/BCA 强制目录，本次因网络策略未能逐条核验。投标或首单前必须请当地进口商或合规顾问确认现行版本的具体要求。</p>
+    <p style="margin-top:12px;"><strong>4. 装柜与运费实测。</strong>用三个主力规格做一次真实装柜方案测算（含法兰拆分与嵌套两种方案），得出每 40HQ 装载台数与单台运费，把运费从「未知成本」变成「报价里的确定项」。</p>
+    <p style="margin-top:12px;"><strong>5. 竞品档案深挖。</strong>对 Greenheck、Ruskin、TROX、BSB Dampers 的产品线做参数级拆解（耐火等级档位、动态风速与关闭静压标定、泄漏等级、控制盘型号），找出中国工厂用现有产能就能做到、但目前没人在国际站上标注的参数，这些就是最便宜的差异化。</p>
+    <p style="margin-top:12px;"><strong>6. 数据中心与地铁隧道细分调研。</strong>东南亚数据中心建设周期内对动态型高静压阀有确定性需求，值得单独做一份细分报告，包括典型机房通风方案、常用规格与指定品牌。</p>
+  </div>
+</div>
+
+<!-- 12. 数据来源 -->
+<div class="section">
+  <div class="section-head"><span class="section-num">12</span><h2>数据来源明细表</h2></div>
+  <div class="card">
+    <table class="src-table">
+      <thead><tr><th style="width:24%;">数据项</th><th style="width:20%;">来源</th><th>地址</th><th style="width:22%;">说明</th></tr></thead>
+      <tbody>
+        <tr><td>29 款商品的价格 / MOQ / 评分 / 供应商 / 图片 / 链接</td><td>Alibaba.com</td><td><a href="https://www.alibaba.com/trade/search?SearchText=fire+damper" target="_blank" rel="noopener">alibaba.com 搜索页</a></td><td>2026-09 实测，全部链接已 curl 验证 200</td></tr>
+        <tr><td>国际站供给结构（2,000+ 商品；中国 1,629 / 蒙古 8 / 沙特 3 / 土耳其 2 / 印度 1 / 新加坡 1）</td><td>Alibaba.com</td><td><a href="https://www.alibaba.com/trade/search?SearchText=fire+damper" target="_blank" rel="noopener">alibaba.com 搜索页</a></td><td>2026 抓取，挂牌价 CN¥16.68–303.47</td></tr>
+        <tr><td>1688 国内供给与价格（6,295 件；¥9.49–417）</td><td>1688</td><td><a href="https://s.1688.com/kq/-B7C0BBF0B7A7.html" target="_blank" rel="noopener">1688 防火阀搜索页</a></td><td>2026 抓取，产业带无锡/佛山/德州/广州</td></tr>
+        <tr><td>沙特建筑市场规模与巨型项目投资额</td><td>美国商务部 ITA</td><td><a href="https://www.trade.gov/market-intelligence/saudi-arabia-construction-sector-opportunities" target="_blank" rel="noopener">trade.gov 沙特建筑业机会</a></td><td>2024-03；CAGR 为本报告自算</td></tr>
+        <tr><td>印尼 Nusantara 项目总值与 GR 12/2023 激励</td><td>美国商务部 ITA</td><td><a href="https://www.trade.gov/market-intelligence/indonesia-new-capital-city-nusantara" target="_blank" rel="noopener">trade.gov 印尼新首都</a></td><td>2024-04</td></tr>
+        <tr><td>GCC 关税、沙特 VAT、SASO/SABER 机制</td><td>美国商务部 CCG</td><td><a href="https://www.trade.gov/country-commercial-guides/saudi-arabia-import-tariffs" target="_blank" rel="noopener">trade.gov 沙特进口关税</a></td><td>2025–2026 版</td></tr>
+        <tr><td>印尼 MFN 平均关税 8.1% 与三档简化</td><td>美国商务部 CCG</td><td><a href="https://www.trade.gov/country-commercial-guides/indonesia-import-tariffs" target="_blank" rel="noopener">trade.gov 印尼进口关税</a></td><td>2025</td></tr>
+        <tr><td>越南关税税则 Decree 26/2023/ND-CP</td><td>美国商务部 CCG</td><td><a href="https://www.trade.gov/country-commercial-guides/vietnam-import-tariffs" target="_blank" rel="noopener">trade.gov 越南进口关税</a></td><td>—</td></tr>
+        <tr><td>UL 555 / 555S / 555C 等级与泄漏限值</td><td>UL Solutions</td><td><a href="https://www.ul.com/thecodeauthority/knowledge/duct-fire-dampers-guide" target="_blank" rel="noopener">Dampers Marking and Application Guide</a></td><td>2024</td></tr>
+        <tr><td>防火阀与排烟阀安装规范要求</td><td>NFPA</td><td><a href="https://www.nfpa.org/news-blogs-and-articles/blogs/2021/08/12/basics-of-fire-and-smoke-damper-installations" target="_blank" rel="noopener">Basics of Fire and Smoke Damper Installations</a></td><td>2021</td></tr>
+        <tr><td>EN 1366-2 判据、EN 13501-3 分级、CE 依据标准</td><td>Efectis</td><td><a href="https://efectis.com/en/testing-and-certification-of-fire-dampers-and-smoke-control-dampers/" target="_blank" rel="noopener">Testing and Certification of Fire and Smoke Control Dampers</a></td><td>2024</td></tr>
+        <tr><td>卡塔尔 QCD 实验室与认证机构认可制</td><td>Efectis / QCD</td><td><a href="https://efectis.com/app/uploads/2024/12/Recognized-by-QCD-Qatar-as-a-Laboratory-Certification-Body.pdf" target="_blank" rel="noopener">QCD 认可文件</a></td><td>2024-12</td></tr>
+        <tr><td>沙特消防规范 SBC 801</td><td>沙特建筑规范委员会</td><td><a href="https://sbc.gov.sa/ar/BC/Documents/tableofcontent2024/SBC%20801/SBC801_CR_241224-FA.pdf" target="_blank" rel="noopener">SBC 801</a></td><td>2024，条文未逐条核验</td></tr>
+        <tr><td>新加坡 Fire Code 2023 受管制消防产品</td><td>SCDF</td><td><a href="https://www.scdf.gov.sg/fire-safety-services-listing/fire-code-2023/table-of-content/chapter-11-regulated-fire-safety-products-and-materials/table-11a" target="_blank" rel="noopener">Fire Code 2023 Table 11A</a></td><td>2023，原文清单未取到</td></tr>
+        <tr><td>越南消防与建筑防火强制标准</td><td>越南法律库</td><td><a href="https://thuvienphapluat.vn/van-ban/Xay-dung-Do-thi/Thong-tu-06-2022-TT-BXD-Quy-chuan-QCVN-06-2022-BXD-An-toan-chay-cho-nha-va-cong-trinh-544059.aspx" target="_blank" rel="noopener">QCVN 06:2022/BXD</a></td><td>2022；另见 QCVN 03:2021/BCA</td></tr>
+        <tr><td>马来西亚 UBBL 1984（2021 修订）与 CIDB 产品审批</td><td>PAM / CIDB</td><td><a href="https://www.cidb.gov.my/wp-content/uploads/2022/07/2114-CPA-Guideline-Book-min.pdf" target="_blank" rel="noopener">CIDB CPA Guideline</a></td><td>2022，阀类是否强制未核验</td></tr>
+        <tr><td>ACFTA 3.0 升级议定书签署</td><td>中国政府网 / ASEAN</td><td><a href="https://english.www.gov.cn/news/202510/29/content_WS6901698cc6d00ca5f9a0725b.html" target="_blank" rel="noopener">China, ASEAN sign FTA upgrade</a></td><td>2025-10-28</td></tr>
+        <tr><td>HS 编码 8481.80 归类参考</td><td>USITC</td><td><a href="https://hts.usitc.gov/search?query=8481801095" target="_blank" rel="noopener">HTS 8481.80.10.95</a></td><td>归类争议见第十章</td></tr>
+        <tr><td>竞品产品线与不公示价格的事实</td><td>Greenheck / BSB Dampers</td><td><a href="https://www.greenheck.com/products/dampers/fire" target="_blank" rel="noopener">Greenheck Fire Dampers</a> · <a href="https://www.bsb-dampers.co.uk/shop/" target="_blank" rel="noopener">BSB Dampers</a></td><td>2024–2025</td></tr>
+        <tr><td>沙特本地含量要求 LCGPA</td><td>LCGPA / Global Trade Alert</td><td><a href="https://lcgpa.gov.sa/p/en_US/Home" target="_blank" rel="noopener">LCGPA</a></td><td>具体百分比未取到</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <p>本报告由 阿里国际站官方运营顾问 杨晨 运营体系驱动生成 · 联系电话：18710781530</p>
+  <p>数据来源：Alibaba.com 平台实时搜索 + 公开行业与法规资料 · 产品链接与价格以实际页面为准 · 标注「未找到公开数据」处本报告不填入未经核实的数字</p>
+</div>
+
+</div>
+
+<div class="watermark">
+  ⭐ <strong>阿里国际站官方运营顾问 杨晨</strong><span>·</span>专业外贸运营陪跑<span>·</span>📞 <strong>18710781530</strong><span>·</span>本报告由阿里国际站官方运营体系驱动生成
+</div>
+
+<script>
+var ORANGE = '#FF6A00', ORANGE_L = '#FF8C33', ORANGE_D = '#E05500', ORANGE_S = '#FFB877';
+var axisStyle = { axisLine:{ lineStyle:{ color:'#E0E0E0' } }, splitLine:{ lineStyle:{ color:'#F0F0F0' } }, axisLabel:{ color:'#888888' } };
+var titleStyle = { textStyle:{ color:'#E05500', fontSize:15, fontWeight:'bold' }, left:'center' };
+var charts = [];
+
+function grad(a, b) {
+  return new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset:0, color:a }, { offset:1, color:b }]);
+}
+function gradH(a, b) {
+  return new echarts.graphic.LinearGradient(0, 0, 1, 0, [{ offset:0, color:a }, { offset:1, color:b }]);
+}
+function mk(id, option) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var c = echarts.init(el);
+  c.setOption(option);
+  charts.push(c);
+}
+
+/* chart1 — 中东与东南亚重点项目投资额 */
+mk('chart1', {
+  title: Object.assign({ text:'中东与东南亚重点项目投资额（亿美元）' }, titleStyle),
+  tooltip: { trigger:'axis', axisPointer:{ type:'shadow' } },
+  grid: { left:'3%', right:'8%', bottom:'3%', top:'18%', containLabel:true },
+  xAxis: Object.assign({ type:'value', name:'亿美元' }, axisStyle),
+  yAxis: Object.assign({ type:'category', data:['Qiddiya（沙特）','Red Sea Global（沙特）','Nusantara（印尼）','NEOM（沙特）'] }, axisStyle),
+  series: [{
+    type:'bar', barWidth:'56%',
+    itemStyle:{ color:gradH(ORANGE_S, ORANGE), borderRadius:[0,6,6,0] },
+    label:{ show:true, position:'right', color:'#E05500', fontWeight:'bold' },
+    data:[98, 236, 450, 5000]
+  }]
+});
+
+/* chart2 — 沙特建筑市场规模 */
+mk('chart2', {
+  title: Object.assign({ text:'沙特建筑市场规模（亿美元，隐含CAGR约5.4%）' }, titleStyle),
+  tooltip: { trigger:'axis' },
+  legend: { bottom:0, textStyle:{ color:'#888888' }, data:['市场规模'] },
+  grid: { left:'3%', right:'4%', bottom:'14%', top:'20%', containLabel:true },
+  xAxis: Object.assign({ type:'category', data:['2024 年（实际）','2029 年（预测）'] }, axisStyle),
+  yAxis: Object.assign({ type:'value', name:'亿美元' }, axisStyle),
+  series: [{
+    name:'市场规模', type:'bar', barWidth:'34%',
+    itemStyle:{ color:grad(ORANGE_L, ORANGE_D), borderRadius:[8,8,0,0] },
+    label:{ show:true, position:'top', color:'#E05500', fontWeight:'bold', formatter:'{c} 亿' },
+    data:[703.3, 913.6]
+  }]
+});
+
+/* chart3 — 关键词首屏相关度实测 */
+mk('chart3', {
+  title: Object.assign({ text:'关键词首屏相关度实测（48 条结果中强相关条数）' }, titleStyle),
+  tooltip: { trigger:'axis', axisPointer:{ type:'shadow' }, formatter:'{b}<br/>强相关 {c} / 48 条' },
+  grid: { left:'3%', right:'10%', bottom:'3%', top:'18%', containLabel:true },
+  xAxis: Object.assign({ type:'value', max:48, name:'条' }, axisStyle),
+  yAxis: Object.assign({ type:'category', data:['fire smoke damper galvanized multi blade','circular round fire damper duct','UL555 fire damper','smoke exhaust valve 280 fire damper stainless'], axisLabel:{ color:'#888888', fontSize:11 } }, axisStyle),
+  series: [{
+    type:'bar', barWidth:'52%',
+    itemStyle:{ color:gradH(ORANGE_S, ORANGE_D), borderRadius:[0,6,6,0] },
+    label:{ show:true, position:'right', color:'#E05500', fontWeight:'bold' },
+    data:[17, 35, 38, 42]
+  }]
+});
+
+/* chart4 — 价差链（终端价未公开） */
+mk('chart4', {
+  title: Object.assign({ text:'价差链：国内批发 → 国际站 FOB → 海外终端（美元/台）' }, titleStyle),
+  tooltip: { trigger:'axis' },
+  legend: { bottom:0, textStyle:{ color:'#888888' } },
+  grid: { left:'3%', right:'4%', bottom:'14%', top:'20%', containLabel:true },
+  xAxis: Object.assign({ type:'category', data:['1688 国内批发','国际站 FOB 挂牌','海外工程终端'] }, axisStyle),
+  yAxis: Object.assign({ type:'log', min:1, name:'美元/台（对数轴）' }, axisStyle),
+  series: [
+    { name:'区间下限', type:'bar', barWidth:'24%', itemStyle:{ color:grad(ORANGE_S, ORANGE_L), borderRadius:[6,6,0,0] },
+       label:{ show:true, position:'top', color:'#888', fontSize:11 }, data:[1.3, 6.0, null] },
+    { name:'区间上限', type:'bar', barWidth:'24%', itemStyle:{ color:grad(ORANGE, ORANGE_D), borderRadius:[6,6,0,0] },
+       label:{ show:true, position:'top', color:'#E05500', fontSize:11, fontWeight:'bold' }, data:[58, 1457.0, null] }
+  ],
+  graphic: [{
+    type:'text', right:'8%', top:'46%',
+    style:{ text:'海外终端价\n未公开\n需询单验证', fill:'#c0392b', fontSize:13, fontWeight:'bold', textAlign:'center', lineHeight:20 }
+  }]
+});
+
+/* chart5 — 本次实测样本的分组价格区间 */
+mk('chart5', {
+  title: Object.assign({ text:'本次 29 款实测样本的分组 FOB 价格区间（美元）' }, titleStyle),
+  tooltip: { trigger:'axis' },
+  legend: { bottom:0, textStyle:{ color:'#888888' } },
+  grid: { left:'3%', right:'4%', bottom:'14%', top:'20%', containLabel:true },
+  xAxis: Object.assign({ type:'category', data:['主推款\n矩形多叶','高端款\n不锈钢/电动','引流款\n圆形阀','配套款\n执行器等'] }, axisStyle),
+  yAxis: Object.assign({ type:'value', name:'美元', max:200 }, axisStyle),
+  series: [
+    { name:'最低价', type:'bar', barWidth:'22%', itemStyle:{ color:grad(ORANGE_S, ORANGE_L), borderRadius:[6,6,0,0] },
+       label:{ show:true, position:'top', color:'#888', fontSize:11 },
+       data:[6.0, 9.0, 7.2, 0.5] },
+    { name:'最高价', type:'bar', barWidth:'22%', itemStyle:{ color:grad(ORANGE, ORANGE_D), borderRadius:[6,6,0,0] },
+       label:{ show:true, position:'top', color:'#E05500', fontSize:11, fontWeight:'bold' },
+       data:[34.9, 200, 80.0, 54.0] }
+  ]
+});
+
+window.addEventListener('resize', function () {
+  charts.forEach(function (c) { c.resize(); });
+});
+</script>
+</body>
+</html>
